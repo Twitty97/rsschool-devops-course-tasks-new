@@ -25,12 +25,12 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./task_2
+        working-directory: .
 
       - name: Terraform Validate
         run: terraform validate
-        working-directory: ./task_2
+        working-directory: .
 
       - name: Terraform Format Check
         run: terraform fmt -check
-        working-directory: ./task_2
+        working-directory: .
