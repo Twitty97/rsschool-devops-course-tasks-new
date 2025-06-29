@@ -29,14 +29,16 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: task_3
 
       - name: Terraform Validate
         run: terraform validate
+        working-directory: task_3
 
       - name: Terraform Plan
         run: terraform plan
+        working-directory: task_3
 
-      # uncomment below if you want to auto-apply on push to main
-      # - name: Terraform Apply
-      #   if: github.ref == 'refs/heads/main'
-      #   run: terraform apply -auto-approve
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        working-directory: task_3
