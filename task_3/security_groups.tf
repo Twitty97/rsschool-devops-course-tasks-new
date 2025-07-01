@@ -77,3 +77,14 @@ resource "aws_security_group" "node_sg" {
     Name = "task3-worker-sg"
   }
 }
+
+# Allow bastion to access EKS API
+resource "aws_security_group_rule" "allow_bastion_to_eks_api" {
+  type                     = "ingress"
+  from_port                = 443
+  to_port                  = 443
+  protocol                 = "tcp"
+  security_group_id        = "sg-091e9574e8b2aff52"       # hard-coded from your describe output
+  source_security_group_id = aws_security_group.bastion_sg.id
+  description              = "Allow bastion SG to access EKS API"
+}
